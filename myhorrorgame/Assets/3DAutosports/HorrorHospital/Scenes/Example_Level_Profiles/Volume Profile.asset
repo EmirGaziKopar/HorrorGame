@@ -25,6 +25,28 @@ MonoBehaviour:
   LuminanceJitterThreshold:
     overrideState: 1
     value: 0.177
+--- !u!114 &-8922096516148144572
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b94fcd11afffcb142908bfcb1e261fba, type: 3}
+  m_Name: MotionBlur
+  m_EditorClassIdentifier: 
+  active: 0
+  enabled:
+    overrideState: 1
+    value: 1
+  shutterAngle:
+    overrideState: 1
+    value: 260
+  sampleCount:
+    overrideState: 1
+    value: 18
 --- !u!114 &-8414741553438277839
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -72,6 +94,28 @@ MonoBehaviour:
   Sharpness:
     overrideState: 1
     value: 0.97
+--- !u!114 &-3755235066148743366
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 123fa084c891c3641894d7fdb6b461ad, type: 3}
+  m_Name: GlitchScreenShake
+  m_EditorClassIdentifier: 
+  active: 0
+  enabled:
+    overrideState: 1
+    value: 1
+  ScreenShakeDirection:
+    overrideState: 1
+    value: 0
+  ScreenShakeIndensity:
+    overrideState: 1
+    value: 0.109
 --- !u!114 &-3032303454770491701
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -1456,6 +1500,11 @@ MonoBehaviour:
   - {fileID: 1083283334102200027}
   - {fileID: -4008168328726590991}
   - {fileID: -2746880682836864824}
+  - {fileID: 288467453670193007}
+  - {fileID: -8922096516148144572}
+  - {fileID: 3689740590971680613}
+  - {fileID: -3755235066148743366}
+  - {fileID: 571261555007626258}
 --- !u!114 &54690739350748601
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -1477,13 +1526,69 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 0.337
+    value: 0.474
   size:
     overrideState: 1
-    value: 0.87
+    value: 1.05
   lumContrib:
     overrideState: 0
     value: 0.8
+--- !u!114 &288467453670193007
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f28a4ba68df41f489a36a1e97ec64f9, type: 3}
+  m_Name: EdgeDetectionRobertsNeon
+  m_EditorClassIdentifier: 
+  active: 0
+  enabled:
+    overrideState: 1
+    value: 1
+  EdgeWidth:
+    overrideState: 1
+    value: 1.81
+  BackgroundFade:
+    overrideState: 1
+    value: 0.474
+  Brigtness:
+    overrideState: 1
+    value: 2
+  BackgroundColor:
+    overrideState: 0
+    value: {r: 0, g: 0, b: 0, a: 1}
+--- !u!114 &571261555007626258
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86f11867526af01438f100677cd3633d, type: 3}
+  m_Name: EdgeDetectionSobel
+  m_EditorClassIdentifier: 
+  active: 1
+  enabled:
+    overrideState: 1
+    value: 1
+  edgeWidth:
+    overrideState: 1
+    value: 2.15
+  edgeColor:
+    overrideState: 0
+    value: {r: 0, g: 0, b: 0, a: 1}
+  backgroundFade:
+    overrideState: 1
+    value: 0.006
+  backgroundColor:
+    overrideState: 0
+    value: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &1083283334102200027
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -1502,7 +1607,29 @@ MonoBehaviour:
     value: 1
   brightness:
     overrideState: 1
-    value: -0.51
+    value: 1
+--- !u!114 &3689740590971680613
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f771e798c3582df458ffed78248242ce, type: 3}
+  m_Name: ColorAdjustmentWhiteBalance
+  m_EditorClassIdentifier: 
+  active: 1
+  enabled:
+    overrideState: 1
+    value: 1
+  temperature:
+    overrideState: 1
+    value: 0.17
+  tint:
+    overrideState: 0
+    value: 0
 --- !u!114 &6387948024995878148
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -1599,7 +1726,7 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 0.001
+    value: 0.1
   threshold:
     overrideState: 0
     value: 1
