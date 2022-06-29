@@ -7,37 +7,50 @@ public class FlashLight : MonoBehaviour
 
     public GameObject flashlight;
     int flashlightCounter;
+
+    int sayac;
+
+    float time;
     
 
     // Start is called before the first frame update
     void Start()
     {
         flashlight.SetActive(false);
-        flashlightCounter = 0;
+        
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
+        if (time < 0.1f)
+        {
+            time += Time.deltaTime;
+        }
+        else
+        {
+            sayac = 0;
+        }
         if (Input.GetKeyDown(KeyCode.F))
         {
-            flashlightCounter++;
-            if (flashlightCounter % 2 == 1)
+            time = 0;
+            if (sayac < 1)
             {
-
-                flashlight.SetActive(true);
-                return;
-            }
-
-            if (flashlightCounter % 2 == 0)
-            {
-
-                flashlight.SetActive(false);
-            }
-
-            return;
-
+                sayac++;
+                if (flashlight.activeSelf == true)
+                {      
+                    Debug.Log(flashlight.activeSelf);
+                    flashlight.SetActive(false);
+                }
+                else
+                {
+                    Debug.Log(flashlight.activeSelf);
+                    flashlight.SetActive(true);
+                }
+                
+            }                                                       
         }
+        
         
 
     }

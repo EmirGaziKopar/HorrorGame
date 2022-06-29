@@ -28,7 +28,7 @@ public class mutatedsMusicSfxController : MonoBehaviour
             }
             
         }
-        if(Vector3.Distance(Character.position , transform.position)<10)
+        if(Vector3.Distance(Character.position , transform.position)<9)
         {
             if (sayac < 1)
             {
