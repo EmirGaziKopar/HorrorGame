@@ -7,33 +7,49 @@ namespace XPostProcessing
 {
     public class PostProcessControllerManager : MonoBehaviour
     {
+        public AudioSource depremSesi;
         public PostProcessVolume test;
-        public ColorAdjustmentContrastV3 color;
-        float timeColor;
+        public GlitchScreenShake shake;
+        float timeShake;
+        float timeStart;
+        int sayac;
         // Start is called before the first frame update
         void Start()
         {
-            timeColor = 0;
-            color = ScriptableObject.CreateInstance<ColorAdjustmentContrastV3>();
+            timeShake = 0;
+            shake = ScriptableObject.CreateInstance<GlitchScreenShake>();
                       
-            test = PostProcessManager.instance.QuickVolume(gameObject.layer, 100f, color); //Burada yap?lan de?i?iklikler post process efektimize aktar?ld?
+            test = PostProcessManager.instance.QuickVolume(gameObject.layer, 100f, shake); //Burada yap?lan de?i?iklikler post process efektimize aktar?ld?
         }
 
         // Update is called once per frame
         void Update()
         {
-
-            if (2 - timeColor > -0.1)
+            if (timeStart < 10)
             {
-                timeColor += Time.deltaTime;
-                
-                test = PostProcessManager.instance.QuickVolume(gameObject.layer, 100f, color);
+                timeStart += Time.deltaTime;
             }
             else
             {
-                color.enabled.Override(false);
-                test = PostProcessManager.instance.QuickVolume(gameObject.layer, 100f, color);
+                if (sayac < 1)
+                {
+                    sayac++;
+                    depremSesi.Play();
+                }
+                if (8 - timeShake > -0.1)
+                {
+                    timeShake += Time.deltaTime;                
+                    shake.ScreenShakeIndensity.value -= Time.deltaTime / 10;
+                    shake.enabled.Override(true);
+                    test = PostProcessManager.instance.QuickVolume(gameObject.layer, 100f, shake);
+                }
+                else
+                {
+                    shake.enabled.Override(false);
+                    test = PostProcessManager.instance.QuickVolume(gameObject.layer, 100f, shake);
+                }
             }
+            
 
 
         }
