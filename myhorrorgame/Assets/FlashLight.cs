@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FlashLight : MonoBehaviour
 {
-
+    public AudioSource onOffSound;
     public GameObject flashlight;
     int flashlightCounter;
 
@@ -36,6 +36,7 @@ public class FlashLight : MonoBehaviour
             time = 0;
             if (sayac < 1)
             {
+                onOffSound.Play();
                 sayac++;
                 if (flashlight.activeSelf == true)
                 {      

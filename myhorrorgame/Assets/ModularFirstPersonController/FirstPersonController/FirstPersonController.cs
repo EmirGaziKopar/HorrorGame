@@ -18,6 +18,8 @@ public class FirstPersonController : MonoBehaviour
 {
     private Rigidbody rb;
 
+    
+
     #region Camera Movement Variables
 
     public Camera playerCamera;
@@ -202,6 +204,8 @@ public class FirstPersonController : MonoBehaviour
 
     private void Update()
     {
+
+
         #region Camera
 
         // Control camera movement
